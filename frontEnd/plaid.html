@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script>
+    (async ($) => {
+        const fetchLinkToken = async () => {
+            try{
+                const response = await fetch('/create-link-token');
+                const { linkToken } = await response.json();
+                return linkToken;
+            }catch(err){console.log(err)}
+        };
+    
+        const handler = Plaid.create({
+            token: await fetchLinkToken(),
+            onSuccess: async (publicToken, metadata) => {
+                console.log(publicToken);
+                console.log(metadata);
+                await fetch('/token-exchange', {
+                    method: 'POST',
+                    body: JSON.stringify({ publicToken }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+            },
+             onEvent: (metadata) => {
+                console.log(metadata);
+            },
+            onExit: (error, metadata) => {
+                console.log(error, metadata);
+            },
+        });
+        $('#plaid-button').on('click', function(e) { handler.open(); });
+    })(jQuery);
+    </script>
+<script type="text/javascript" src="./scripts/token.js"></script>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <h1 color=white>Plaid Workshop!</h1>
+    <div>
+        <button class="form__button" id='plaid-button'>Link your account with Plaid!</button>
+    </div>
+    <div>
+        <button class="form__button" id='tokenbutton'>Use My Token!</button>
+    </div>
+</body>
