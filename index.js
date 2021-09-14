@@ -87,7 +87,7 @@ app.get('/create-link-token', async (req, res) => {
             client_user_id: 'some-unique-identifier',
         },
         client_name: 'App of Rafael',
-        products: ['auth', 'balance'],
+        products: ['auth', 'transactions'],
         country_codes: ['US'],
         language: 'en',
     });

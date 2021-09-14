@@ -76,3 +76,5 @@ temp/
 
 # PEM
 *.pem
+
+.gitignore
