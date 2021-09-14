@@ -26,7 +26,7 @@ const plaid = require('plaid');
 const plaidClient = new plaid.Client({
     clientID: process.env.CLIENT_ID,
     secret: process.env.SECRET,
-    env: plaid.environments.development,
+    env: plaid.environments.sandbox,
 });
 
 app.use(express.static(__dirname + '/frontEnd/views'));
@@ -53,7 +53,7 @@ router.post('/login',(req,res) => {
         }
         console.log(result);
         sess.email = req.body.email;
-        sess.accessToken = result[0].accessToken
+        //sess.accessToken = result[0].accessToken
         res.end('done');
     });
     
@@ -87,7 +87,7 @@ app.get('/create-link-token', async (req, res) => {
             client_user_id: 'some-unique-identifier',
         },
         client_name: 'App of Rafael',
-        products: ['auth', 'balance'],
+        products: ['auth', 'transactions'],
         country_codes: ['US'],
         language: 'en',
     });
