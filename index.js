@@ -100,7 +100,6 @@ app.post('/token-exchange', async (req, res) => {
     const { publicToken } = req.body;
     const { access_token: accessToken } = await plaidClient.exchangePublicToken(publicToken);
     console.log(accessToken);
-    //var sql = "INSERT INTO Users u (accessToken) VALUE ('"+accessToken+"') SELECT u.email from Users u WHERE"
     var sql = "UPDATE Users SET accessToken = '"+accessToken+"' WHERE Users.email = '"+sess.email+"'";
     con.query(sql, function (err, result) {
         if (err) throw err;
