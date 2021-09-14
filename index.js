@@ -123,11 +123,6 @@ app.post('/token-exchange', async (req, res) => {
     for (let i = 0; i < balanceResponse.accounts.length; i++) {
         console.log("Name: " + balanceResponse.accounts[i].name);
         console.log("Type: " + balanceResponse.accounts[i].subtype);
-        /*var sql = "INSERT INTO account (name, type) VALUES ('"+balanceResponse.accounts[i].name+"','"+ balanceResponse.accounts[i].subtype +"')";
-        con.query(sql, function (err, result) {
-            if (err) throw err;
-            console.log("1 record inserted");
-        });*/
     }
     console.log('---------------');
 /*cle
