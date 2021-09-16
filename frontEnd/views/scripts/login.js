@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         // Perform your AJAX/Fetch login
         $(document).ready(function(){
-            var email,pass;
-            email=$("#email").val();
+            var emailUsername,pass;
+            emailUsername=$("#emailUsername").val();
             pass=$("#password").val();
 
-            $.post("/login",{email:email,pass:pass},function(data){
+            $.post("/login",{emailUsername:emailUsername,pass:pass},function(data){
                 if(data==='done') {
                     window.location.href="/plaid";
                 }
