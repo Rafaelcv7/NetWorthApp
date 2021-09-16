@@ -4,7 +4,8 @@ config = {
    host: 'localhost',
    user: process.env.DB_USER,
    password: process.env.DB_PASS,
-   database: 'bank_info'
+   database: 'BankV2',
+   supportBigNumbers : true
 }
 var connection = mysql.createConnection(config); 
 connection.connect(function(err){
