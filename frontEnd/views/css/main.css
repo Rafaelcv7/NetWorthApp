@@ -66,8 +66,10 @@ body {
     margin-bottom: 1rem;
 }
 
+
 .form__input {
     display: block;
+    flex-direction: row;
     margin: auto;
     width: 85%;
     padding: 0.75rem;
@@ -78,8 +80,22 @@ body {
     background: #eeeeee;
     transition: background 0.2s, border-color 0.2s;
 }
+.form__input input{
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 1em;
+    color: inherit;
+    flex : auto 1 1;
+    width : 85%;
+    background : none;
+    background-color : transparent;
+}
+.form__input-box i {
+    padding : 10px;
+}
 
-.form__input:focus {
+.form__input:focus-within {
     border-color: var(--color-primary);
     background: #ffffff;
 }
