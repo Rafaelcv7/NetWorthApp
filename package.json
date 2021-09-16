@@ -1,7 +1,7 @@
 {
-  "name": "quick-start-workshop",
+  "name": "networth-app",
   "version": "1.0.0",
-  "description": "Quick Start Workshop",
+  "description": "Nethworth App with Plaid API",
   "main": "index.js",
   "engines": {
     "node": "^12.20.1"
@@ -10,7 +10,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Tyler Nappy",
+  "author": "Rafael Cedeno Vázquez",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
