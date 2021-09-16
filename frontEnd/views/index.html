@@ -7,6 +7,7 @@
     <title>Login</title>
     <link rel="shortcut icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
     <script type="text/javascript" src="./scripts/login.js"></script>
 </head>
@@ -16,11 +17,17 @@
             <h1 class="form__title">[ Login ]</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
-                <input type="text" id="emailUsername" class="form__input" autofocus placeholder="Username or Email">
+                <div class="form__input">
+                    <input type="text" id="emailUsername" autofocus placeholder="Username or Email">
+                    <i id= "eye" class="fas fa-user"></i>
+                </div>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" id="password" class="form__input" autofocus placeholder="Password">
+                <div class="form__input">
+                    <input type="password" id="password" placeholder="Password">
+                    <i id= "eye" class="fas fa-eye" onmouseover="showPassword()" onmouseout="showPassword()"></i>
+                </div>
                 <div class="form__input-error-message"></div>
             </div>
             <button class="form__button" type="submit" value="Submit" id="submit">Sign In</button>
@@ -58,3 +65,11 @@
     </div>
     
 </body>
+<script>
+    function showPassword() {
+      var password = document.getElementById("password");
+      var icon = document.getElementById("eye");
+      if (password.type === "password") {password.type = "text", icon.className = "far fa-eye";} 
+      else {password.type = "password", icon.className = "fas fa-eye";}
+    }
+  </script>
