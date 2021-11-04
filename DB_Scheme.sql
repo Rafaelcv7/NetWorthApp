@@ -1,4 +1,4 @@
-CREATE TABLE users_table
+CREATE TABLE users_table 
 (
   id INT UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT,
   username TEXT UNIQUE NOT NULL,
@@ -30,7 +30,8 @@ AS
     users_table;
 
 
-CREATE TABLE items_table (
+CREATE TABLE items_table 
+(
     id INT UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
     plaid_access_token TEXT UNIQUE NOT NULL,

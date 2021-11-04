@@ -7,7 +7,12 @@ const cors = require('cors')
 const config = require("./DB_connect");
 const router = express.Router();
 const app = express();
-var con = config.connection
+try {
+    var con = config.connection
+}
+catch(err) {
+    console.log("si funciona" + err)
+}
 
 
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
@@ -35,6 +40,7 @@ var sess;
 
 router.get('/',(req,res) => {
     sess = req.session;
+    console.log(sess)
     if(sess.user) {
         return res.redirect('/plaid');
     }
